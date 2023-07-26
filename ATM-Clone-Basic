@@ -1,0 +1,78 @@
+using System;
+namespace ATM
+{
+	class Program
+	{
+
+		public static void Main(string[] args)
+		{
+			string CardPinNumber; 
+			while (true)
+			{
+			Console.WriteLine("Chao mung den voi ATM ACB");
+			Console.WriteLine("Hay nhap vao ma pin cua ban");
+			CardPinNumber = Console.ReadLine();
+				if(CardPinNumber== "12345")
+				{
+				Console.WriteLine("Chao Tien");
+				ChoosingAfterInputPinNumber();
+				}
+				else
+				{
+				Console.WriteLine("Nhap vao sai ma pin\n");	
+				}
+			}
+		}
+		public static void ChoosingAfterInputPinNumber()
+		{
+			int x;
+			double MoneyInCard = 999999999;
+			Console.WriteLine("\nLua chon cac giao dich ben duoi");
+			Console.WriteLine("\n1.Rut tien");
+			Console.WriteLine("\n2.Kiem tra so du");
+			Console.WriteLine("\n3.Thoat");
+			x=Convert.ToInt32(Console.ReadLine());
+			if(x==1)
+			{
+				ChoosingTypeofCard();
+			}
+			else if (x==2)
+			{
+				Console.WriteLine("So tien trong tai khoan la: " + MoneyInCard + " VND" );
+			}
+			else
+			{
+				Console.WriteLine("Thoat");
+			}
+		}
+	public static void ChoosingTypeofCard()
+		{
+		int TypeofCard;
+		Console.WriteLine("Chon loai the ma ban dang su dung: \n");
+		Console.WriteLine("1. The tin dung \n");
+		Console.WriteLine("2. The vay no \n");
+		Console.WriteLine("3. The ca nhan \n");
+		Console.WriteLine("4. Thoat");	
+		TypeofCard=Convert.ToInt32(Console.ReadLine());
+		if(TypeofCard==4)
+		{
+			Console.WriteLine("Thoat");
+		}
+		else
+		{
+			ChoosingAfterTypeofCard();
+		}
+		}
+	public static void ChoosingAfterTypeofCard()
+		{
+			double MoneyInCard = 999999999;
+			double WithdrawMoney;
+			double NewAmountofMoney;
+			Console.WriteLine("So tien muon rut la:");
+			WithdrawMoney =Convert.ToDouble(Console.ReadLine());
+			NewAmountofMoney = (MoneyInCard - WithdrawMoney);
+			Console.WriteLine("So tien sau khi rut con lai la: " + NewAmountofMoney + " VND");			
+		}
+	}
+
+}
